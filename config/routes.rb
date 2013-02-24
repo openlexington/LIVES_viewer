@@ -10,6 +10,9 @@ LIVESViewer::Application.routes.draw do
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
   # This route can be invoked with purchase_url(:id => product.id)
 
+  match 'upload' => 'pages#upload', :as => :upload
+  match 'import' => 'pages#import', :as => :import
+
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
 
@@ -48,7 +51,7 @@ LIVESViewer::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  root :to => 'pages#index'
 
   # See how all your routes lay out with "rake routes"
 
