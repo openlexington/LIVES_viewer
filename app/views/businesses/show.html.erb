@@ -1,0 +1,27 @@
+<h2><%= @business.name %></h2>
+
+<ul>
+  <li>Business ID: <%= @business.business_id %></li>
+  <li>Address: <%= @business.address %></li>
+</ul>
+
+<h3>Inspection</h3>
+<ul>
+<% @inspections.each do |inspection| %>
+  <li>Date: <%= inspection.date %>, Score: <%= inspection.score %></li>
+<% end %>
+</ul>
+
+<h3>Violations</h3>
+<ul>
+<% @violations.each do |violation| %>
+  <li>
+    <ul>
+      <li>Date: <%= violation.date %></li>
+      <li>Code: <%= violation.code %></li>
+      <li>Description: <%= violation.description %></li>
+    </ul>
+  </li>
+<% end %>
+</ul>
+
