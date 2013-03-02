@@ -1,0 +1,19 @@
+%h1
+  Businesses
+
+%table
+  %tr
+    %th
+      Business ID
+    %th
+      Business Name
+    %th
+      Business Address
+  - @businesses.each do |business|
+    %tr
+      %td
+        = business.business_id
+      %td
+        = link_to business.name, business_path(business)
+      %td
+        = business.address

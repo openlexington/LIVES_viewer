@@ -1,0 +1,35 @@
+%h2
+  = @business.name
+
+%ul
+  %li
+    Business ID:
+    = @business.business_id
+  %li
+    Address:
+    = @business.address
+
+%h3Inspection
+%ul
+  - @inspections.each do |inspection|
+    %li
+      Date:
+      = inspection.date
+      Score:
+      = inspection.score
+
+%h3 Violations
+%ul
+  - @violations.each do |violation|
+    %li
+      %ul
+        %li
+          Date:
+          = violation.date
+      %li
+        Code:
+        = violation.code
+      %li
+        Description:
+        = violation.description
+
