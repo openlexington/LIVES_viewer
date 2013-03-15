@@ -1,0 +1,11 @@
+.row
+  .span12
+    %h1
+      LIVES Viewer
+      %small
+        Simple Web App to explore LIVES data
+.row
+  .span6.offset3
+    = form_tag('businesses/search', {class: 'form-search'}) do
+      = text_field_tag 'search', nil, {class: 'search-query', placeholder: 'Search for a business'}
+      = submit_tag "Search", {class: 'btn'}
