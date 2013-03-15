@@ -1,0 +1,25 @@
+!!! 5
+%html
+  %head
+    %title
+      LIVES Viewer
+    = stylesheet_link_tag    "bootstrap.min"
+    = stylesheet_link_tag    "bootstrap-responsive.min"
+    = stylesheet_link_tag    "application", :media => "all"
+    = javascript_include_tag "application"
+    = javascript_include_tag "bootstrap"
+    = csrf_meta_tags
+
+  %body
+    .container
+      .row
+        .span12
+          .navbar
+            .navbar-inner
+              = link_to "LIVES Viewer", root_path, {class: 'brand'}
+              %ul.nav
+                %li
+                  = link_to "Businesses", businesses_path
+
+
+      = yield
