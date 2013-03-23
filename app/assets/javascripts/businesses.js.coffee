@@ -12,7 +12,7 @@ $(document).ready ->
           $("#chart").slideDown()
 
   geocoder = new google.maps.Geocoder()
-  address = $("#address").text()
+  address = $("#address").text() + "Lexington, KY"
 
 
 
