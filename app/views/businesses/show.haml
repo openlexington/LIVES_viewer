@@ -9,9 +9,13 @@
   .span3.offset2
     %h3
       Address:
-    %p
+    %p#address
       = @business.address
   .span5
+    #map
+
+.row
+  .span5.offset2
     %canvas#chart{height: "300", width: "500", style: "height: 300px; width: 500px;"}
 
 .row
