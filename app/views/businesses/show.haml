@@ -1,36 +1,37 @@
-%h2
-  = @business.name
+.row
+  .span8.offset2
+    %h2
+      = @business.name
+      %small#id
+        = @business.id
 
-%ul
-  %li
-    Business ID:
-    = @business.business_id
-  %li
-    Address:
-    = @business.address
+.row
+  .span3.offset2
+    %h3
+      Address:
+    %p
+      = @business.address
+  .span5
+    %canvas#chart{height: "300", width: "500", style: "height: 300px; width: 500px;"}
 
-%h3
-  Inspections
-%ul
-  - @inspections.each do |inspection|
-    %li
-      Date:
-      = inspection.date
-      Score:
-      = inspection.score
-
-%h3 Violations
-%ul
-  - @violations.each do |violation|
-    %li
-      %ul
-        %li
-          Date:
-          = violation.date
-      %li
-        Code:
-        = violation.code
-      %li
-        Description:
-        = violation.description
-
+.row
+  .span8.offset2
+    %h3
+      Inspections
+    - @business.inspections.each do |inspection|
+      %h4
+        = "#{inspection.date} -  Score: #{inspection.score}"
+      %table.table.table-striped
+        %thead
+          %tr
+            %th
+              Code
+            %th
+              Description
+        %tbody
+          - inspection.violations.each do |violation|
+            %tr
+              %td
+                = violation.code
+              %td
+                = violation.description

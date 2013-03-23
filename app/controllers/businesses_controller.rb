@@ -6,8 +6,6 @@ class BusinessesController < ApplicationController
 
   def show
     @business = Business.find(params[:id])
-    @inspections = Inspection.where(business_id: @business.business_id)
-    @violations = Violation.where(business_id: @business.business_id)
   end
 
   def autocomplete_business_name
@@ -16,6 +14,20 @@ class BusinessesController < ApplicationController
     results = Business.where("name LIKE ?", "#{query}%").limit(10)
     results.map!{|x| x['name']}
     render json: results
+  end
+
+  def chart
+    @business = Business.find(params[:id])
+    dates = @business.inspections.reverse.map{|x| x.date}
+    scores = @business.inspections.reverse.map{|x| x.score}
+    data = { labels: dates, datasets: [{
+      fillColor: "rgba(151,187,205,0.5)",
+      strokeColor: "rgba(151,187,205,1)",
+      pointColor: "rgba(151,187,205,1)",
+      pointStrokeColor: "#fff",
+      data: scores
+      }]}
+    render json: data
   end
 
   def search

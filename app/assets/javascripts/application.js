@@ -12,4 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap.min
+//= require Chart.min
 //= require_tree .

@@ -1,5 +1,13 @@
 class PagesController < ApplicationController
   def index
+    @latest_scores = Inspection.latest
+    @latest = @latest_scores.sort{|x,y| x.score <=> y.score}
+    @offenders = @latest[0..9]
+    @top = @latest.reverse[0..9]
+    @average = Inspection.average(:score).round
+  end
+
+  def about
   end
 
   def upload

@@ -4,7 +4,7 @@
 
 $(document).ready ->
   $("#search").typeahead
-    minLength: 3
+    minLength: 2
     source: (query, process) ->
       $.get "/autocomplete_business_name.json",
         query: query

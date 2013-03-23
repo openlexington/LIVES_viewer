@@ -14,7 +14,6 @@
 ActiveRecord::Schema.define(:version => 20130223224547) do
 
   create_table "businesses", :force => true do |t|
-    t.integer  "business_id"
     t.string   "name"
     t.string   "address"
     t.string   "city"
