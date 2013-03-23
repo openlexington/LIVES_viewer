@@ -7,7 +7,9 @@ $(document).ready ->
   $.get "/chart.json",
         id: $('#id').text()
       , (data) ->
-        new Chart(ctx).Line(data, {scaleOverride: true, scaleSteps: 9, scaleStepWidth: 5, scaleStartValue: 60})
+        if data['labels'].length > 1
+          new Chart(ctx).Line(data, {scaleOverride: true, scaleSteps: 9, scaleStepWidth: 5, scaleStartValue: 60})
+          $("#chart").slideDown()
 
   geocoder = new google.maps.Geocoder()
   address = $("#address").text()
