@@ -39,6 +39,7 @@ GEM
       xpath (~> 1.0.0)
     childprocess (0.3.9)
       ffi (~> 1.0, >= 1.0.11)
+    coderay (1.0.9)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -46,6 +47,13 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.4.0)
+    columnize (0.3.6)
+    debugger (1.5.0)
+      columnize (>= 0.3.1)
+      debugger-linecache (~> 1.2.0)
+      debugger-ruby_core_source (~> 1.2.0)
+    debugger-linecache (1.2.0)
+    debugger-ruby_core_source (1.2.0)
     diff-lcs (1.2.1)
     erubis (2.7.0)
     execjs (1.4.0)
@@ -66,10 +74,19 @@ GEM
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    method_source (0.8.1)
     mime-types (1.21)
     multi_json (1.6.1)
     nokogiri (1.5.9)
     polyglot (0.3.3)
+    pry (0.9.12)
+      coderay (~> 1.0.5)
+      method_source (~> 0.8)
+      slop (~> 3.4)
+    pry-rails (0.2.2)
+      pry (>= 0.9.10)
+    puma (1.6.3)
+      rack (~> 1.2)
     rack (1.4.5)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -117,6 +134,7 @@ GEM
       multi_json (~> 1.0)
       rubyzip
       websocket (~> 1.0.4)
+    slop (3.4.4)
     sprockets (2.2.2)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -142,10 +160,13 @@ PLATFORMS
 DEPENDENCIES
   capybara
   coffee-rails (~> 3.2.1)
+  debugger
   fabrication
   forgery
   haml
   jquery-rails
+  pry-rails
+  puma
   rails (= 3.2.11)
   rspec-rails (~> 2.0)
   rubyzip

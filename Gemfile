@@ -28,6 +28,12 @@ group :test, :development do
   gem 'fabrication'
   gem 'capybara'
   gem 'forgery'
+  gem 'debugger'
+  gem 'pry-rails'
+end
+
+group :development do
+  gem 'puma'
 end
 
 # To use ActiveModel has_secure_password

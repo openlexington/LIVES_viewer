@@ -1,5 +1,6 @@
 class Business < ActiveRecord::Base
-  attr_accessible :business_id, :address, :city, :latitude, :longitude, :name, :phone_number, :postal_code, :state
+  attr_accessible :business_id, :address, :city, :latitude, :longitude, :name, 
+                  :phone_number, :postal_code, :state
 
   def self.import(path)
     CSV.foreach(path, headers: true, header_converters: :symbol) do |entry|
@@ -10,6 +11,7 @@ class Business < ActiveRecord::Base
       business.city = entry[:city]
       business.state = entry[:state]
       business.save!
+      business
     end
   end
 end
