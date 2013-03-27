@@ -14,7 +14,10 @@ describe Business do
           phone_number '859-555-1212'
           postal_code '40508'
         end
-        Business.import(fake_path).should eq(biz)
+
+        Business.import(fake_path)
+
+        expect(Business.all).to include(biz)
       end
     end
   end

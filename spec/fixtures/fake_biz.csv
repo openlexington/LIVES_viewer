@@ -1,2 +1,2 @@
-business_id,address,city,name,phone_number,postal_code,state
-1234,200 E Main,Lexington,LFUCG,859-555-1212,40508,KY
+business_id,name,address,city,state
+1234,LFUCG,"200 E Main",Lexington,KY
