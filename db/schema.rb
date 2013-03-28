@@ -32,9 +32,9 @@ ActiveRecord::Schema.define(:version => 20130223224547) do
     t.integer  "score"
     t.date     "date"
     t.string   "description"
-    t.string   "type"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.string   "inspection_type"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
   create_table "violations", :force => true do |t|
