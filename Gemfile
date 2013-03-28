@@ -27,6 +27,8 @@ group :test, :development do
   gem "rspec-rails", "~> 2.0"
   gem 'fabrication'
   gem 'capybara'
+  gem 'capybara-webkit'
+  gem 'launchy'
   gem 'forgery'
   gem 'debugger'
   gem 'pry-rails'
