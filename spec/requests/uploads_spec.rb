@@ -9,7 +9,8 @@ describe "Uploading a zip file for LIVES data import" do
       fake_file_path = File.expand_path("#{Rails.root}/spec/fixtures/fake.zip")
       attach_file('file', fake_file_path)
       click_button('Upload')
-      # here expect that some records are created after import
+      # expect that the upload file exists
+      # expect that some records are created after import
     end
   end
 end
