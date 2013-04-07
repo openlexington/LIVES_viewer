@@ -10,7 +10,13 @@ describe "Uploading a zip file for LIVES data import" do
       attach_file('file', fake_file_path)
       click_button('Upload')
       # expect that the upload file exists
+      upload_path = File.expand_path("#{Rails.root}/tmp/import/")
+      expect(Dir.entries(upload_path)).to include("businesses.csv")
+      expect(Dir.entries(upload_path)).to include("violations.csv")
+      expect(Dir.entries(upload_path)).to include("inspections.csv")
       # expect that some records are created after import
+      visit business_path(1)
+      page.should have_content("LFUCG")
     end
   end
 end

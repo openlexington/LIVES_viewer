@@ -3,7 +3,7 @@ require "spec_helper"
 describe Inspection do
   describe 'Inspection#import should create a Inspection' do
     context "success" do
-      let(:fake_path) { File.expand_path("#{Rails.root}/spec/fixtures/fake_ins.csv") }
+      let(:fake_path) { File.expand_path("#{Rails.root}/spec/fixtures/inspections.csv") }
       it "should create an inspection from CSV" do
         ins = Fabricate(:inspection) do
           business_id 1234
