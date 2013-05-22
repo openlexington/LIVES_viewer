@@ -5,7 +5,7 @@ class Violation < ActiveRecord::Base
   def self.import(path)
     CSV.foreach(path, headers: true, header_converters: :symbol) do |entry|
       if entry[:business_id] != '#N/A'
-        violation = Violation.find_by_date(entry[:date]) || new
+        violation = Violation.new()
         violation.business_id = entry[:business_id]
         violation.date = entry[:date]
         violation.code = entry[:code]

@@ -5,7 +5,8 @@ describe Violation do
     context "success" do
       let(:fake_path) { File.expand_path("#{Rails.root}/spec/fixtures/violations.csv") }
       it "should create an violation from CSV" do
-        vio = Fabricate(:violation) do
+        vio = Fabricate.build(:violation) do
+          id 1
           business_id 1234
           code 19
           date 20120412

@@ -2,11 +2,11 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
-#$(document).ready ->
+$(document).ready ->
   if $("#chart").length != 0
     ctx = $("#chart").get(0).getContext("2d")
   $.get "/chart.json",
-        id: $('#id').text()
+        id: parseInt($('#id').text())
       , (data) ->
         if data['labels'].length > 1
           new Chart(ctx).Line(data, {scaleOverride: true, scaleSteps: 9, scaleStepWidth: 5, scaleStartValue: 60})

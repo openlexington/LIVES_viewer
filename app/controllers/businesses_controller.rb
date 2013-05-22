@@ -17,16 +17,21 @@ class BusinessesController < ApplicationController
   end
 
   def chart
-    @business = Business.find(params[:id])
-    dates = @business.inspections.reverse.map{|x| x.date}
-    scores = @business.inspections.reverse.map{|x| x.score}
-    data = { labels: dates, datasets: [{
-      fillColor: "rgba(151,187,205,0.5)",
-      strokeColor: "rgba(151,187,205,1)",
-      pointColor: "rgba(151,187,205,1)",
-      pointStrokeColor: "#fff",
-      data: scores
-      }]}
+    @business = Business.where(id: params[:id])
+    if @business.empty?
+      data = []
+    else
+      @business = @business.first
+      dates = @business.inspections.reverse.map{|x| x.date}
+      scores = @business.inspections.reverse.map{|x| x.score}
+      data = { labels: dates, datasets: [{
+        fillColor: "rgba(151,187,205,0.5)",
+        strokeColor: "rgba(151,187,205,1)",
+        pointColor: "rgba(151,187,205,1)",
+        pointStrokeColor: "#fff",
+        data: scores
+        }]}
+    end
     render json: data
   end
 

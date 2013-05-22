@@ -5,8 +5,8 @@ describe Business do
     context "success" do
       let(:fake_path) { File.expand_path("#{Rails.root}/spec/fixtures/businesses.csv") }
       it "should create a business from CSV" do
-        biz = Fabricate(:business) do
-          business_id 1234
+        biz = Fabricate.build(:business) do
+          id 1234
           name 'LFUCG'
           address '200 E Main'
           city 'Lexington'
