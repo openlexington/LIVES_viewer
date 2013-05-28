@@ -36,3 +36,4 @@ $(document).ready ->
       )
     else
       $("#map").hide()
+
