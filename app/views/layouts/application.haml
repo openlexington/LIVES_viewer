@@ -6,8 +6,8 @@
     = stylesheet_link_tag    "bootstrap.min"
     = stylesheet_link_tag    "bootstrap-responsive.min"
     = stylesheet_link_tag    "application", :media => "all"
+    = javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ENV["GMAPS_KEY"]}&sensor=false"
     = javascript_include_tag "application"
-    = javascript_include_tag "bootstrap"
     = csrf_meta_tags
 
   %body
@@ -18,6 +18,8 @@
             .navbar-inner
               = link_to "LIVES Viewer", root_path, {class: 'brand'}
               %ul.nav
+                %li
+                  = link_to "About", about_path
                 %li
                   = link_to "Businesses", businesses_path
 
