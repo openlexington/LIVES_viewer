@@ -2,7 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
-$(document).ready ->
+Window.setup_autocomplete = ->
   $("#search").typeahead
     minLength: 2
     source: (query, process) ->
