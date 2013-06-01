@@ -1,5 +1,13 @@
 class PagesController < ApplicationController
   def index
+    @latest_scores = Inspection.latest
+    @latest = @latest_scores.sort{|x,y| x.score <=> y.score}
+    @offenders = @latest[0..9]
+    @top = @latest.reverse[0..9]
+    @average = Inspection.score_average
+  end
+
+  def about
   end
 
   def upload
@@ -16,6 +24,6 @@ class PagesController < ApplicationController
     Business.import("tmp/import/businesses.csv")
     Inspection.import("tmp/import/inspections.csv")
     Violation.import("tmp/import/violations.csv")
-    redirect_to upload_path
+    redirect_to businesses_path()
   end
 end

@@ -14,7 +14,9 @@ LIVESViewer::Application.routes.draw do
   match 'upload' => 'pages#upload', :as => :upload
   match 'import' => 'pages#import', :as => :import
   match '/autocomplete_business_name' => 'businesses#autocomplete_business_name'
+  match '/chart' => 'businesses#chart'
   match '/business_search' => 'businesses#search'
+  match '/about' => 'pages#about', :as => :about
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
