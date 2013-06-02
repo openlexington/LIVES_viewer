@@ -14,7 +14,7 @@ Window.setup_chart = ->
               $("#chart").slideDown()
 
 Window.setup_map = ->
-  if $("#map")[0] != undefined
+  if $("#address")[0] != undefined
     geocoder = new google.maps.Geocoder()
     address = $("#address").text() + "Lexington, KY"
 
