@@ -1,4 +1,6 @@
 class PagesController < ApplicationController
+  before_filter :authenticate_admin!, only: [:upload, :import]
+
   def index
     @latest_scores = Inspection.latest
     @latest = @latest_scores.sort{|x,y| x.score <=> y.score}
@@ -24,6 +26,6 @@ class PagesController < ApplicationController
     Business.import("tmp/import/businesses.csv")
     Inspection.import("tmp/import/inspections.csv")
     Violation.import("tmp/import/violations.csv")
-    redirect_to businesses_path()
+    redirect_to root_path
   end
 end

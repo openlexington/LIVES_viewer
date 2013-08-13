@@ -1,8 +1,17 @@
 require 'spec_helper'
 
+
 describe "Uploading a zip file for LIVES data import" do
+
+  before(:all) do
+    @user = Fabricate(:admin)
+  end
   describe "success", :type => :feature do
     it "should import records from a zip file", driver: :webkit do
+      visit new_admin_session_path
+      fill_in 'admin_email', with: 'test@test.com'
+      fill_in 'admin_password', with: 'password'
+      click_button('Sign In')
       visit upload_path
       page.status_code.should be(200)
       page.should have_content("Upload")
