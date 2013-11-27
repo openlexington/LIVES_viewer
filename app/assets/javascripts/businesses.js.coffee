@@ -5,6 +5,7 @@
 Window.setup_chart = ->
   if $("#chart")[0] != undefined
     if $("#chart").length != 0
+      $('#chart').hide()
       ctx = $("#chart").get(0).getContext("2d")
       $.get "/chart.json",
             id: parseInt($('#id').text())
