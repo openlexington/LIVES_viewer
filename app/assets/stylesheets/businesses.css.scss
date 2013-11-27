@@ -11,15 +11,11 @@
 }
 
 .latest-score-container{
-  width: 100px;
-  height: 100px;
   background-color: #ECECEC;
   margin-bottom: 15px;
+  max-width: 100px;
 }
 .latest-score{
-  display: table-cell;
-  vertical-align: middle;
   text-align: center;
-  width: inherit;
-  height: inherit;
+  padding: .5em;
 }
