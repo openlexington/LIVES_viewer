@@ -4,7 +4,6 @@
     %title
       LIVES Viewer
     = stylesheet_link_tag    "bootstrap.min"
-    = stylesheet_link_tag    "bootstrap-responsive.min"
     = stylesheet_link_tag    "application", :media => "all"
     = javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ENV["GMAPS_KEY"]}&sensor=false"
     = javascript_include_tag "application"
@@ -13,7 +12,7 @@
   %body
     .container
       .row
-        .span12
+        .col-md-12
           .navbar
             .navbar-inner
               = link_to "LIVES Viewer", root_path, {class: 'brand'}

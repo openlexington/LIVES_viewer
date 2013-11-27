@@ -1,29 +1,29 @@
 .row
-  .span8
+  .col-md-8
     %h1
       LIVES Viewer
       %small
         Explore Health Inspection Data
 .row
-  .span6
+  .col-md-6
     %p.lead
       Find inspections and violations for restaurants in your city.
 
 .row
-  .span6
+  .col-md-6
     = form_tag('/business_search', {class: 'form-search'}) do
       .input-append
-        = text_field_tag :query, nil, {class: 'search-query input-block-level', placeholder: 'Search for a business', id: 'search', autocomplete: 'off'}
+        = text_field_tag :query, nil, {class: 'search-query input-block-level search', placeholder: 'Search for a business', id: 'search', autocomplete: 'off'}
         = submit_tag "Search", {class: 'btn'}
 .row
-  .span6
+  .col-md-6
     %h2
       Average Score:
       = @average
 
 
 .row
-  .span4.well
+  .col-md-4.well
     %h3
       Worst Violators
     %table.table
@@ -41,7 +41,7 @@
             %td
               = inspection.score
 
-  .span4.well
+  .col-md-4.well
     %h3
       Top Scores
     %table.table

@@ -3,10 +3,7 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 Window.setup_autocomplete = ->
-  $("#search").typeahead
-    minLength: 2
-    source: (query, process) ->
-      $.get "/autocomplete_business_name.json",
-        query: query
-      , (data) ->
-        process data
+  $("input.search").typeahead
+    name: "businesses"
+    remote: "/autocomplete_business_name?query=%QUERY"
+
