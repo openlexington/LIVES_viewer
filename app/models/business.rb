@@ -22,11 +22,13 @@ class Business < ActiveRecord::Base
     # If the last two inspections happened on the same day, get the highest score
     # This is just some heuristics due to Lexington not having a way to see
     # which score was a follow up.
-    if inspections.first.date == inspections[1].date
-      # Maybe add an asterix or something to the end, showing that it was a (assumed) followup
-      [inspections.first, inspections[1]].sort{|x,y| x.score <=> y.score}.last.score
+    if inspections.length > 1
+      if inspections.first.date == inspections[1].date
+        # Maybe add an asterix or something to the end, showing that it was a (assumed) followup
+        [inspections.first, inspections[1]].sort{|x,y| x.score <=> y.score}.last.score
+      end
     else
-      inspection.first.score
+      inspections.first.score
     end
   end
 end

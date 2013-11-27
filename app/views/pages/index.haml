@@ -11,10 +11,11 @@
 
 .row
   .col-md-6
-    = form_tag('/business_search', {class: 'form-search'}) do
-      .input-append
-        = text_field_tag :query, nil, {class: 'search-query input-block-level search', placeholder: 'Search for a business', id: 'search', autocomplete: 'off'}
-        = submit_tag "Search", {class: 'btn'}
+    = form_tag('/business_search', {class: 'form'}) do
+      .input-group
+        = text_field_tag :query, nil, {class: 'form-control search', placeholder: 'Search for a business', id: 'search', autocomplete: 'off'}
+        %span.input-group-btn
+          = submit_tag "Search", {class: 'btn btn-primary'}
 .row
   .col-md-6
     %h2
