@@ -12,8 +12,14 @@ class BusinessesController < ApplicationController
     query = params[:query]
 
     results = Business.where("name LIKE ?", "#{query}%").limit(10)
-    results.map!{|x| x['name']}
-    render json: results
+    datums= []
+    results.each do |business|
+      datum = {}
+      datum["value"] = business.name
+      datum["tokens"] = business.name.split(' ')
+      datums.push(datum)
+    end
+    render json: datums
   end
 
   def chart

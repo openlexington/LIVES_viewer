@@ -4,6 +4,7 @@
 
 Window.setup_chart = ->
   if $("#chart")[0] != undefined
+    $('#chart').hide()
     if $("#chart").length != 0
       ctx = $("#chart").get(0).getContext("2d")
       $.get "/chart.json",

@@ -3,8 +3,8 @@
   %head
     %title
       LIVES Viewer
+    %meta{name: "viewport", content: "width=device-width, initial-scale=1.0"}
     = stylesheet_link_tag    "bootstrap.min"
-    = stylesheet_link_tag    "bootstrap-responsive.min"
     = stylesheet_link_tag    "application", :media => "all"
     = javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ENV["GMAPS_KEY"]}&sensor=false"
     = javascript_include_tag "application"
@@ -13,11 +13,17 @@
   %body
     .container
       .row
-        .span12
-          .navbar
-            .navbar-inner
-              = link_to "LIVES Viewer", root_path, {class: 'brand'}
-              %ul.nav
+        .col-md-12
+          %nav.navbar.navbar-default{role: 'navigation'}
+            .navbar-header
+              %button.navbar-toggle{data:{toggle: 'collapse', target: '#navbar-collapse'}}
+                %span.sr-only Toggle Navigation
+                %span.icon-bar
+                %span.icon-bar
+                %span.icon-bar
+              = link_to "LIVES Viewer", root_path, {class: 'navbar-brand'}
+            .collapse.navbar-collapse#navbar-collapse
+              %ul.nav.navbar-nav
                 %li
                   = link_to "About", about_path
                 %li

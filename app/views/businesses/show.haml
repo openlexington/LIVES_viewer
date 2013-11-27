@@ -1,41 +1,55 @@
 .row
-  .span8.offset2
+  .col-xs-6
     %h2
       = @business.name
       %small#id
         = @business.id
+  .col-xs-4.col-xs-offset-2
+    .latest-score-container
+      %h1.latest-score
+        = @business.latest_score
 
 .row
-  .span3.offset2
+  .col-md-3
     %h3
       Address:
     %p#address
       = @business.address
-  .span5
+  .col-md-5
     #map
 
 .row
-  .span5.offset2
-    %canvas#chart.hide{height: "200", width: "700", style: "height: 200px; width: 700px;"}
+  .col-md-5
+    %canvas.visible-lg.visible-md#chart{height: "200", width: "700", style: "height: 200px; width: 700px;"}
 
 .row
-  .span8.offset2
+  .col-md-8
     %h3
       Inspections
-    - @business.inspections.each do |inspection|
-      %h4
-        = "#{inspection.date} -  Score: #{inspection.score}"
-      %table.table.table-striped
-        %thead
-          %tr
-            %th
-              Code
-            %th
-              Description
-        %tbody
-          - inspection.violations.each do |violation|
-            %tr
-              %td
-                = violation.code
-              %td
-                = violation.description
+      %small
+        Expand to see violations
+    .panel-group#accordion
+    - @business.inspections.each_with_index do |inspection, index|
+      .panel.panel-default
+        .panel-heading
+          .panel-title
+            %a{href:"#collapse_#{index}", data:{toggle: "collapse", parent: "accordion"}}
+              %h4
+                = "#{inspection.date} -  Score: #{inspection.score}"
+        .panel-collapse.collapse{id: "collapse_#{index}"}
+          .panel-body
+            %h3 Violations
+            %table.table.table-striped
+              %thead
+                %tr
+                  %th
+                    Code
+                  %th
+                    Description
+              %tbody
+                - inspection.violations.each do |violation|
+                  %tr
+                    %td
+                      = violation.code
+                    %td
+                      = violation.description
